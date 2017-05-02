@@ -5,6 +5,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.add-product').click(function () {
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("ShowAddForm")',
+                success: function (result) {
+                    $('.add-form').html(result);
+                }
+            });
+        });
+    });
+</script>
+
 <h1>Products</h1>
 
 <div class="product-container">
@@ -16,4 +30,8 @@
             <p><span class="price">@product.Cost</span></p>
         </div>
     }
+</div>
+<div class="add-container">
+    <button type="button" class="btn btn-primary add-product">Add New Product</button>
+    <div class="add-form"></div>
 </div>

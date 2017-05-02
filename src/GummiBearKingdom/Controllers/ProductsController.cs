@@ -65,5 +65,10 @@ namespace GummiBearKingdom.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult ShowAddForm()
+        {
+            return View();
+        }
     }
 }
